@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Link, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 const easingCurve: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const STORAGE_KEY = "veeboss-site-content-v1";
@@ -1680,8 +1681,11 @@ function AppShell() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppShell />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
+      <Analytics />
+    </>
   );
 }
